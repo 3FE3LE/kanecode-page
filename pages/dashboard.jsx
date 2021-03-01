@@ -1,61 +1,10 @@
-import { Tooltip } from "@material-ui/core";
 import Head from "next/head";
+import ArticlesSection from "./components/ArticlesSection";
+import AsideCollapseMenu from "./components/AsideCollapseMenu";
+import ChartSection from "./components/ChartSection";
+import VerticalScrollSection from "./components/VerticalScrollSection";
 
 export default function Dashboard() {
-  const dataChart = [
-    {
-      news: 0,
-      recurrents: 0,
-    },
-    {
-      news: 0,
-      recurrents: 0,
-    },
-    {
-      news: 0,
-      recurrents: 0,
-    },
-    {
-      news: 0,
-      recurrents: 0,
-    },
-    {
-      news: 0,
-      recurrents: 0,
-    },
-    {
-      news: 0,
-      recurrents: 0,
-    },
-  ];
-
-  const monthlyRewards = [
-    {
-      month: "Octubre",
-      reward: "$629.75",
-    },
-    {
-      month: "Noviembre",
-      reward: "$270.18",
-    },
-    {
-      month: "Diciembre",
-      reward: "$485.35",
-    },
-    {
-      month: "Enero",
-      reward: "$482.53",
-    },
-    {
-      month: "Febrero",
-      reward: "$323.61",
-    },
-    {
-      month: "Marzo",
-      reward: "$704.15",
-    },
-  ];
-
   return (
     <>
       <Head>
@@ -63,23 +12,22 @@ export default function Dashboard() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="dashboard">
-        <aside className="dashboard__aside">
-          <h1>Prendo</h1>
-          <ul>
-            <li>Vista general</li>
-            <li>Programas y cursos</li>
-            <li>Diseña tu sitio</li>
-            <li>Estudiantes / Clientes</li>
-            <li>Marketing y Ventas</li>
-            <li>Analítica y reporte</li>
-          </ul>
-          <ul>
-            <li>Configuración</li>
-          </ul>
-        </aside>
+        <AsideCollapseMenu />
         <div className="dashboard__container">
           <nav className="dashboard__nav">
-            <input type="text" name="search" />
+            <div className="nav__search-bar">
+              <img
+                className="search-bar__img"
+                src="/search.svg"
+                alt="search-ico"
+              />
+              <input
+                className="search-bar__input"
+                placeholder="Buscar..."
+                type="text"
+                name="search"
+              />
+            </div>
             <div className="nav">
               <div className="nav__icons">
                 <img src="/help.svg" alt="ico1" />
@@ -89,7 +37,7 @@ export default function Dashboard() {
               <div className="nav__profile">
                 <img src="/Ellipse 5.png" alt="avatar" />
                 <span>Liliana Mora</span>
-                <img src="/arrow.svg" alt=""/>
+                <img src="/arrow.svg" alt="" />
               </div>
             </div>
           </nav>
@@ -166,57 +114,11 @@ export default function Dashboard() {
                       Ganancias totales
                     </span>
                   </div>
-                  <div className="section--chart">
-                    {dataChart.map((item) => (
-                      <Tooltip
-                        placement="left"
-                        interactive
-                        title={
-                          <>
-                            <span className="chart--data">{item.news} Nuevos</span>
-                            <span className="chart--data">{item.recurrents} recurrentes</span>
-                          </>
-                        }
-                        children={<div className="chart--space"></div>}
-                      ></Tooltip>
-                    ))}
-                  </div>
+                  <ChartSection />
                 </div>
-                <div className="section--division section--vertical--scroll">
-                  {monthlyRewards.map((item) => (
-                    <div key={item.month}>
-                      <span>{item.month}</span>
-                      <p>{item.reward}</p>
-                    </div>
-                  ))}
-                </div>
+                <VerticalScrollSection />
               </section>
-              <section className="content__section--articles">
-                <article>
-                  <div>
-                    <img src="/Image 171.png" alt="" />
-                  </div>
-                  <span>Tus cursos</span>
-                </article>
-                <article>
-                  <div>
-                    <img src="/Image 153.png" alt="" />
-                  </div>
-                  <span>Personaliza tus sitios</span>
-                </article>
-                <article>
-                  <div>
-                    <img src="/Image 155.png" alt="" />
-                  </div>
-                  <span>Crea un campaña</span>
-                </article>
-                <article>
-                  <div>
-                    <img src="/muneca.png" alt="" />
-                  </div>
-                  <span>Conoce a tus clientes</span>
-                </article>
-              </section>
+              <ArticlesSection />
             </div>
             <section className="content__section--footer">
               <h3 className="content__h3 content__h3--lg">
