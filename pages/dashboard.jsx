@@ -1,9 +1,12 @@
 import Head from "next/head";
 
+// third party components
+import { withStyles } from "@material-ui/core/styles";
+import { Tooltip } from "@material-ui/core";
+
 // Components
 import Navbar from "./components/Navbar";
 import ChartSection from "./components/ChartSection";
-import TooltipCustom from "./components/TooltipCustom";
 import ArticlesSection from "./components/ArticlesSection";
 import AsideCollapseMenu from "./components/AsideCollapseMenu";
 import VerticalScrollSection from "./components/VerticalScrollSection";
@@ -28,6 +31,20 @@ export default function Dashboard() {
 
   const month = date.getMonth();
   const day = date.getDay();
+
+  const TooltipCustom = withStyles((theme) => ({
+    tooltip: {
+      backgroundColor: "#ffffff",
+      padding: 0,
+      fontSize: theme.typography.pxToRem(12),
+      border: "1px solid #dadde9",
+      margin: 0,
+      boxShadow: "0 12px 30px #0000001A",
+      
+    },
+  }))(Tooltip);
+
+  
 
   return (
     <>
