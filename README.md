@@ -33,7 +33,7 @@ BEM (Block-Element-Modifier), first time that i use a CSS methodology on myy res
 
 ## React Hooks
 
-- useEffect: 
-- useState
-- useFormik
-- useRouter
+- useEffect: for reactive components
+- useState: for keep some states of application
+- useFormik: for handling form values and validations
+- useRouter: for native navigation
