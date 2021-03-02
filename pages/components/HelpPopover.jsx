@@ -39,7 +39,7 @@ const HelpPopover = () => {
       >
         <div>
           <img src="/hekp.png" alt=""/>
-          <span>fake information</span>
+          {/* <span>fake information</span> */}
         </div>
       </Popover>
     </>

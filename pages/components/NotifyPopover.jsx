@@ -40,7 +40,7 @@ const NotifyPopover = () => {
         <div>
           <img src="/notify1.png" alt=""/>
           <img src="/notify2.png" alt=""/>
-          <span>fake information</span>
+          {/* <span>fake information</span> */}
         </div>
       </Popover>
     </>
