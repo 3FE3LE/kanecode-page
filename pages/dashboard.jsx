@@ -1,46 +1,44 @@
 import Head from "next/head";
+
+// Components
+import Navbar from "./components/Navbar";
+import ChartSection from "./components/ChartSection";
+import TooltipCustom from "./components/TooltipCustom";
 import ArticlesSection from "./components/ArticlesSection";
 import AsideCollapseMenu from "./components/AsideCollapseMenu";
-import ChartSection from "./components/ChartSection";
 import VerticalScrollSection from "./components/VerticalScrollSection";
 
 export default function Dashboard() {
+  const date = new Date();
+
+  var months = [
+    "Ene",
+    "Feb",
+    "Mar",
+    "Abr",
+    "May",
+    "Jun",
+    "Jul",
+    "Ago",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dic",
+  ];
+
+  const month = date.getMonth();
+  const day = date.getDay();
+
   return (
     <>
       <Head>
-        <title>KANECODE</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Prendo - Home</title>
+        <link rel="icon" href="/P.svg" />
       </Head>
       <main className="dashboard">
         <AsideCollapseMenu />
         <div className="dashboard__container">
-          <nav className="dashboard__nav">
-            <div className="nav__search-bar">
-              <img
-                className="search-bar__img"
-                src="/search.svg"
-                alt="search-ico"
-              />
-              <input
-                className="search-bar__input"
-                placeholder="Buscar..."
-                type="text"
-                name="search"
-              />
-            </div>
-            <div className="nav">
-              <div className="nav__icons">
-                <img src="/help.svg" alt="ico1" />
-                <img src="/notify.svg" alt="ico2" />
-                <img src="/msg.svg" alt="ico3" />
-              </div>
-              <div className="nav__profile">
-                <img src="/Ellipse 5.png" alt="avatar" />
-                <span>Liliana Mora</span>
-                <img src="/arrow.svg" alt="" />
-              </div>
-            </div>
-          </nav>
+          <Navbar />
           <div className="dashboard__content">
             <header className="content__header">
               <div>
@@ -49,13 +47,19 @@ export default function Dashboard() {
                 </h2>
                 <h1 className="content__h1">Vista general</h1>
               </div>
-              <div>
-                <p className="content__p--bold content__p--red">
-                  Curso de fotografiá de alimentos
-                </p>
-                <p className="content__p--regular ">
-                  Calificar actividad del modulo 2
-                </p>
+              <div className="header__calendar">
+                <div className="header__calendar--date">
+                  <p>{day}</p>
+                  <span>{months[month]}</span>
+                </div>
+                <div className="header__calendar--details">
+                  <p className="content__p--bold content__p--red">
+                    Curso de fotografiá de alimentos
+                  </p>
+                  <p className="content__p--regular ">
+                    Calificar actividad del modulo 2
+                  </p>
+                </div>
               </div>
             </header>
             <section className="content__section--main">
@@ -90,7 +94,23 @@ export default function Dashboard() {
                 <span className="section__p--regular section__p--lg">
                   Tus estudiantes
                 </span>
-                <img src="/avatar.png" alt="avatarstudents" />
+                <TooltipCustom
+                  placement="left"
+                  title={
+                    <div className="stats__tooltip">
+                      <p className="chart--data">
+                        <div className="data--new"></div>
+                        <strong>14</strong> Activos
+                      </p>
+                      <p className="chart--data">
+                        <div className="data--recurrent"></div>
+                        <strong>22</strong> Inactivos
+                      </p>
+                    </div>
+                  }
+                >
+                  <img src="/avatar.png" alt="avatarstudents" />
+                </TooltipCustom>
               </div>
             </section>
             <div className="content__section--group">
