@@ -11,8 +11,21 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>KANECODE</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Prendo - Login</title>
+        <link rel="icon" href="/P.svg" />
+        {/* <div>
+          Iconos diseñados por{" "}
+          <a
+            href="https://www.flaticon.es/autores/pixel-perfect"
+            title="Pixel perfect"
+          >
+            Pixel perfect
+          </a>{" "}
+          from{" "}
+          <a href="https://www.flaticon.es/" title="Flaticon">
+            www.flaticon.es
+          </a>
+        </div> */}
       </Head>
 
       <main className="main">
@@ -43,7 +56,7 @@ export default function Home() {
           </Carousel>
         </div>
         <div className="main__form">
-          <MainForm/>
+          <MainForm />
         </div>
       </main>
     </>
