@@ -3,31 +3,42 @@
   padding: 0;
   display: flex;
   overflow-y: hidden;
+  @include for-desktop-1024 {
+    flex-wrap: wrap;
+  }
 }
 
 .main__carousel {
   width: 54.5%;
   height: 100vh;
   overflow: hidden;
+  @include for-desktop-1024 {
+    width: auto;
+    height: auto;
+  }
 }
 
 .main__form {
   width: 45.5%;
   height: 100vh;
+  @include for-desktop-1024 {
+    width: 100%;
+  }
 }
 
-.form{
+.form {
   width: 100%;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding:6.625rem 5.8rem;
+  padding: 6.625rem 5.8rem;
   box-sizing: border-box;
+  position: relative;
 }
 
-.form__h1{
+.form__h1 {
   width: 100%;
   font-weight: 600;
   font-size: 2rem;
@@ -35,28 +46,28 @@
   margin: 0;
 }
 
-.form__h1--left{
+.form__h1--left {
   text-align: left;
 }
 
-.form__p{
+.form__p {
   width: 100%;
   font-weight: 400;
   font-size: 1rem;
 }
 
-.form__p--gray{
+.form__p--gray {
   color: c.$kane-gray;
 }
 
-.form__p--left{
+.form__p--left {
   text-align: left;
 }
 
-.form__label{
+.form__label {
   position: relative;
   width: 100%;
-  .label__span{
+  .label__span {
     position: absolute;
     left: 0.75rem;
     top: -0.625rem;
@@ -64,20 +75,34 @@
     background: white;
     padding: 0 0.25rem;
   }
+  .label__span--focus {
+    color: c.$kane-purple;
+  }
+  .label__span--invalid {
+    color: c.$text-red;
+  }
 }
 
-.form__input{
-  border: 0.08rem solid c.$kane-gray;
+.form__input {
+  border: rem(1) solid c.$kane-gray;
   border-radius: 0.25rem;
   height: 3.125rem;
   width: 100%;
-  padding:0 1rem;  
+  padding: 0 1rem;
   font-weight: 400;
   font-size: 0.9rem;
   box-sizing: border-box;
 }
+.form__input:focus {
+  color: c.$kane-purple;
+  border: rem(2) solid c.$kane-purple;
+}
+.form__input--invalid {
+  color: c.$text-red;
+  border: rem(2) solid c.$text-red;
+}
 
-.form__button--md{
+.form__button--md {
   width: 7.5rem;
   height: 2.6rem;
   border-radius: 0.375rem;
@@ -86,70 +111,84 @@
   justify-content: center;
   align-items: center;
 }
-.form__button--lg{
+.form__button--lg {
   font-size: 0.875rem;
   font-weight: 700;
   border-radius: 1.875rem;
-  border:0;
+  border: 0;
   padding: 1.125rem;
   height: 3.5rem;
   width: 17.18rem;
 }
 
-.form__icon{
+.form__icon {
   width: 1.3rem;
 }
-.form__icon--linkedIn{
+.form__icon--linkedIn {
   background: white;
 }
 
-.form__button--facebook{
+.form__button--facebook {
   background: #395185;
 }
-.form__button--google{
-  
+.form__button--google {
   background: white;
   border: 0.08rem solid c.$kane-gray;
 }
-.form__button--linkedIn{
-  background: #0A66C2;
+.form__button--linkedIn {
+  background: #0084b1;
 }
 
-.form__button--blue{
+.form__button--blue {
   background: c.$bg-color-blue;
   color: white;
 }
 
-.form__buttonGroup{
+.form__buttonGroup {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.form__span--md{
+.form__span--md {
   font-weight: 400;
   font-size: 1rem;
 }
 
-.form__span--sm{
+.form__span--sm {
   font-weight: 400;
   font-size: 0.75rem;
 }
 
-.form__span--gray{
+.form__span--error {
+  margin: 0 0 0 1rem;
+  color: c.$text-red;
+  font-size: rem(12);
+  font-weight: 400;
+}
+
+.form__span--gray--light {
   color: c.$kane-gray;
 }
 
+.form__span--gray {
+  color: c.$text-gray;
+}
 
-.form__span--purple{
+.form__span--bottom {
+  position: absolute;
+  bottom: rem(82);
+}
+
+.form__span--purple {
   color: c.$kane-purple;
 }
 
-.form__span--right{
+.form__span--right {
   text-align: right;
   width: 100%;
 }
 
-.form__a--blue{
-  color: c.$text-blue
+.form__a--blue {
+  color: c.$text-blue;
 }
