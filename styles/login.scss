@@ -19,6 +19,9 @@
 
 .main__form {
   height: 100vh;
+  @include for-desktop-1234 {
+    width: 39%;
+  }
   @include for-desktop-1024 {
     width: 100%;
   }
