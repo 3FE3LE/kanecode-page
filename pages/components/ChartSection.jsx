@@ -1,5 +1,7 @@
 import React from "react";
-import { Tooltip } from "@material-ui/core";
+
+// components
+import TooltipCustom from "./TooltipCustom";
 
 
 const ChartSection = () => {
@@ -7,44 +9,44 @@ const ChartSection = () => {
   const dataChart = [
     {
       news: 0,
-      recurrents: 0,
+      recurrent: 0,
     },
     {
       news: 0,
-      recurrents: 0,
+      recurrent: 0,
     },
     {
       news: 0,
-      recurrents: 0,
+      recurrent: 0,
     },
     {
       news: 0,
-      recurrents: 0,
+      recurrent: 0,
     },
     {
       news: 0,
-      recurrents: 0,
+      recurrent: 0,
     },
     {
       news: 0,
-      recurrents: 0,
+      recurrent: 0,
     },
   ];
 
   return (
     <div className="section--chart">
       {dataChart.map((item) => (
-        <Tooltip
+        <TooltipCustom
           placement="left"
           interactive
           title={
-            <>
-              <span className="chart--data">{item.news} Nuevos</span>
-              <span className="chart--data">{item.recurrents} recurrentes</span>
-            </>
+            <div className="stats__tooltip">
+              <span className="chart--data"><div className="data--new"></div><strong>{item.recurrent}</strong> recurrentes</span>
+              <span className="chart--data"><div className="data--recurrent"></div><strong>{item.news}</strong> Nuevos</span>
+            </div>
           }
           children={<div className="chart--space"></div>}
-        ></Tooltip>
+        ></TooltipCustom>
       ))}
     </div>
   );
